@@ -62,3 +62,9 @@ export async function compareUsersScores(
   await saveBattleResult([firstUser, secondUser], result);
   return result;
 }
+
+export async function getRanking() {
+  const result = await fighterRepository.getRanking();
+  if (!result) throw new NotFound('Não há batalhas para rankear');
+  return result;
+}

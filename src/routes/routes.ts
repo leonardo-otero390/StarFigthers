@@ -11,4 +11,6 @@ routes.get('/health', async (req: Request, res: Response) => {
 
 routes.post('/battle', validateSchema(battleSchema), controller.battleUsers);
 
+routes.get('/ranking', controller.getRanking);
+
 export default routes;

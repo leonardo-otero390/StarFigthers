@@ -32,3 +32,11 @@ export async function insertNewFigthResult(name: String, fightResult: String) {
   if (!result.rowCount) return null;
   return true;
 }
+
+export async function getRanking() {
+  const result = await connection.query(`
+  SELECT * FROM fighters ORDER BY wins DESC, draws DESC, losses DESC;
+  `);
+  if (!result.rowCount) return null;
+  return result.rows;
+}

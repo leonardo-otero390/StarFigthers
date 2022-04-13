@@ -18,3 +18,16 @@ export async function battleUsers(
     return next(error);
   }
 }
+
+export async function getRanking(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  try {
+    const ranking = await userService.getRanking();
+    return res.send(ranking);
+  } catch (error) {
+    return next(error);
+  }
+}
